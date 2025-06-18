@@ -2,9 +2,11 @@ const container = document.querySelector(".container");
 const newPageBtn = document.querySelector(".newPageBtn");
 const resetPageBtn = document.querySelector(".resetPageBtn");
 const colorPicker = document.querySelector(".colorPicker");
+const discoBtn = document.querySelector(".discoBtn");
 
 let currentGridSize = 16;
 let penDown = false; // Variable to track if the mouse button is pressed
+let discoMode = false; // Variable to track if disco mode is active
 
 const createGrid = (size) => {
     container.innerHTML = "";
@@ -28,12 +30,18 @@ newPageBtn.addEventListener("click", () => {
     } 
     currentGridSize = noOfSquares;
     createGrid(currentGridSize);
+    discoMode = false; // Disable disco mode
 });
 
 resetPageBtn.addEventListener("click", () => {
     container.innerHTML = "";
     createGrid(currentGridSize);
+    discoMode = false; // Disable disco mode
 });
+
+discoBtn.addEventListener("click", () => {
+    discoMode = true; // Enable disco mode
+})
 
 container.addEventListener("mousedown", (e) => { 
     if(e.button === 0) {                              // Check if left mouse button is pressed
@@ -47,7 +55,12 @@ document.addEventListener("mouseup", () => {
 
 container.addEventListener("mouseover", (e)=>{
     if(penDown && e.target.classList.contains("square")){
-        e.target.style.backgroundColor = colorPicker.value; // Use the color from the color picker  
+        if(discoMode){
+            const randomColor = `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`;
+            e.target.style.backgroundColor = randomColor; // Use a random color in disco mode
+        } else{
+            e.target.style.backgroundColor = colorPicker.value; // Use the color from the color picker
+        }
     }
 });
 
