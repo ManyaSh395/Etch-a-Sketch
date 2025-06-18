@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    height: 900px;
+    height: 800px;
 }
 
 body {
@@ -17,7 +17,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;;
+    margin-top: 30px;
 }
 
 .container {
@@ -33,9 +33,7 @@ body {
     width: 37px;
 }
 
-.newPageBtn {
-    margin-top: 100px;
-    margin-bottom: 20px;
+.btn {
     padding: 5px 8px 5px 8px;
     font-size: 14px;
     height: 50px;
@@ -57,4 +55,15 @@ body {
     border: 2px solid #985277;
     border-radius: 1rem;
 }
+
+.colorPicker {
+    margin-top: 80px;
+    padding: 2px 8px 2px 8px;
+    font-size: 14px;
+    height: 120px;
+    width: 150px;
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
 

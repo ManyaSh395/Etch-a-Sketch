@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 const newPageBtn = document.querySelector(".newPageBtn");
 const resetPageBtn = document.querySelector(".resetPageBtn");
+const colorPicker = document.querySelector(".colorPicker");
 
 let currentGridSize = 16;
 let penDown = false; // Variable to track if the mouse button is pressed
@@ -14,11 +15,6 @@ const createGrid = (size) => {
         square.classList.add("square");
         square.style.width = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
-
-        square.addEventListener("mouseover", ()=>{
-        square.style.backgroundColor = "rgb(231, 27, 231)";
-        });
-
         container.appendChild(square); // Append the square to the container
     }
 }
@@ -51,7 +47,7 @@ document.addEventListener("mouseup", () => {
 
 container.addEventListener("mouseover", (e)=>{
     if(penDown && e.target.classList.contains("square")){
-        e.target.style.backgroundColor = "#f0f0f0";
+        e.target.style.backgroundColor = colorPicker.value; // Use the color from the color picker  
     }
 });
 
